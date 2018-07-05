@@ -3,9 +3,9 @@
 """
 import numpy as np
 from matplotlib import pyplot as plt
-import pyKriging
-from pyKriging.krige import kriging
-from pyKriging.utilities import *
+import pyKriging_mod
+from pyKriging_mod.krige import kriging
+from pyKriging_mod.utilities import *
 import random
 import scipy.stats as stats
 
