@@ -16,6 +16,7 @@ from random import Random
 from time import time
 from inspyred import ec
 import math as m
+import time
 
 
 
@@ -357,6 +358,8 @@ class kriging(matrixops):
         The function trains the hyperparameters of the Kriging model.
         :param optimizer: Two optimizers are implemented, a Particle Swarm Optimizer or a GA
         '''
+        t2 = time.time()
+
         # First make sure our data is up-to-date
         self.updateData()
 
@@ -425,6 +428,9 @@ class kriging(matrixops):
                 pass
             else:
                 break
+
+        t3 = time.time()
+        print("total training time: ", t3-t2)
 
     def fittingObjective(self,candidates, args):
         '''

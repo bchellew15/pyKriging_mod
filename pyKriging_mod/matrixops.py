@@ -2,6 +2,7 @@
 import numpy as np
 from numpy.matlib import rand,zeros,ones,empty,eye
 import scipy
+import time
 class matrixops():
 
     def __init__(self):
@@ -66,6 +67,8 @@ class matrixops():
         self.NegLnLike=-1.*(-(self.n/2.)*np.log(self.SigmaSqr) - 0.5*self.LnDetPsi)
 
     def predict_normalized(self,x):
+        t0 = time.time()
+
         for i in range(self.n):
             self.psi[i]=np.exp(-np.sum(self.theta*np.power((np.abs(self.X[i]-x)),self.pl)))
         z = self.y-self.one.dot(self.mu)
@@ -75,6 +78,10 @@ class matrixops():
 
         f=self.mu + c
         return f[0]
+
+        t1 = time.time()
+        print("prediction time:", t1-t0)
+
 
     def predicterr_normalized(self,x):
         for i in range(self.n):
