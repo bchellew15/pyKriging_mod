@@ -10,7 +10,7 @@ class samplingplan():
     def __init__(self,k=2):
         self.samplingplan = []
         self.k = k
-        self.path = os.path.dirname(pyKriging.__file__)
+        self.path = os.path.dirname(pyKriging_mod.__file__)
         self.path = self.path+'/sampling_plans/'
 
 
