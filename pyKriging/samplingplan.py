@@ -3,7 +3,7 @@ import numpy as np
 import math as m
 import os
 import pickle
-import pyKriging
+import pyKriging_mod
 
 
 class samplingplan():
