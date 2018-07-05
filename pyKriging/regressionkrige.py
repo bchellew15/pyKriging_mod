@@ -9,7 +9,7 @@ import copy
 from matplotlib import pyplot as plt
 import pylab
 from mpl_toolkits.mplot3d import axes3d
-from pyKriging.samplingplan import samplingplan
+from pyKriging_mod.samplingplan import samplingplan
 import inspyred
 from random import Random
 from time import time
