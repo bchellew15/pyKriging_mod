@@ -77,10 +77,11 @@ class matrixops():
         c=self.psi.T.dot(b)
 
         f=self.mu + c
-        return f[0]
 
         t1 = time.time()
         print("prediction time:", t1-t0)
+
+        return f[0]
 
 
     def predicterr_normalized(self,x):
