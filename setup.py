@@ -3,7 +3,7 @@ from os import path, walk
 
 
 here = path.abspath(path.dirname(__file__))
-datadir = 'pyKriging/sampling_plans'
+datadir = 'pyKriging_mod/sampling_plans'
 package_data = [ (d, [path.join(d, f) for f in files]) for d,folders,files in walk(datadir)]
 data_files=[]
 for i in package_data:
@@ -12,11 +12,11 @@ for i in package_data:
 data_files = [path.relpath(file, datadir) for file in data_files]
 
 setup(
-    name='pyKriging',
+    name='pyKriging_mod',
     version='0.1.0',
     zip_safe = False,
     packages=find_packages(),
-    package_data={'pyKriging': ['sampling_plans/*']},
+    package_data={'pyKriging_mod': ['sampling_plans/*']},
     url='www.pykriging.com',
     license='',
     author='Chris Paulson',
