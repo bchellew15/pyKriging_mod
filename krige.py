@@ -388,9 +388,6 @@ class kriging(matrixops):
             # Sort and print the best individual, who will be at index 0.
             final_pop.sort(reverse=True)
 
-        t5 = time()
-        print("optimizer: ", t5-t4)
-
         # If not using a PSO search, run the GA
         elif optimizer == 'ga':
             ea = inspyred.ec.GA(Random())
@@ -403,6 +400,9 @@ class kriging(matrixops):
                                   max_evaluations=30000,
                                   num_elites=10,
                                   mutation_rate=.05)
+
+        t5 = time()
+        print("optimizer: ", t5-t4)
 
         # This code updates the model with the hyperparameters found in the global search
         for entry in final_pop:
