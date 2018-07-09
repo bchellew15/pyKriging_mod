@@ -370,6 +370,7 @@ class kriging(matrixops):
         rand = Random()
         rand.seed(int(time()))
 
+        t4 = time()
         # If the optimizer option is PSO, run the PSO algorithm
         if optimizer == 'pso':
             ea = inspyred.swarm.PSO(Random())
@@ -386,6 +387,9 @@ class kriging(matrixops):
                                   num_inputs=self.k)
             # Sort and print the best individual, who will be at index 0.
             final_pop.sort(reverse=True)
+
+        t5 = time()
+        print("optimizer: ", t5-t4)
 
         # If not using a PSO search, run the GA
         elif optimizer == 'ga':

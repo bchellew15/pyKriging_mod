@@ -29,8 +29,14 @@ class matrixops():
         newPsi = np.exp(-np.sum(self.theta*np.power(self.distance,self.pl), axis=2))
         self.Psi = np.triu(newPsi,1)
         self.Psi = self.Psi + self.Psi.T + np.mat(eye(self.n))+np.multiply(np.mat(eye(self.n)),np.spacing(1))
+        
+        t0 = time.time()
+
         self.U = np.linalg.cholesky(self.Psi)
         self.U = self.U.T
+
+        t1 = time.time()
+        print("cholesky decomposition: ", t1-t0)
 
     def regupdatePsi(self):
         self.Psi = np.zeros((self.n,self.n), dtype=np.float)
@@ -79,7 +85,7 @@ class matrixops():
         f=self.mu + c
 
         t1 = time.time()
-        print("prediction time:", t1-t0)
+        print("finish inverse:", t1-t0)
 
         return f[0]
 
